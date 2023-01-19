@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Landing from "../screens/Landing";
 import "./App.css";
 import AddUser from "./components/AddUser/AddUser";
 import User from "./components/User/User";
@@ -70,10 +71,11 @@ function App() {
 
   return (
     <div className="App">
-      <h2>SIL Frontend Engineer Assessment</h2>
+      {/* <h2>SIL Frontend Engineer Assessment</h2>
       <AddUser addUser={addUser} />
       <br />
-      <div>{user}</div>
+      <div>{user}</div> */}
+      <Landing />
     </div>
   );
 }
