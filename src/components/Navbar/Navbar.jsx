@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import Logo from "../../assets/faithplus-main-logo.png";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../../../context/AuthContext";
 
@@ -20,11 +19,6 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      // for user signed in with Google Auth Provider
-      // localStorage.clear();
-      // window.location.reload();
-
-      // for user signed in with Email/Password combo
       await logout();
       navigate("/");
     } catch (err) {
@@ -46,6 +40,9 @@ function Navbar() {
           </div> */}
           {/* navbar items */}
           <div className="hidden md:flex space-x-12">
+            <a href="/home" className="hover:text-darkGrayishBlue">
+              <span>Landing Page</span>
+            </a>
             <a href="/userinfo" className="hover:text-darkGrayishBlue">
               <span>User Info</span>
             </a>

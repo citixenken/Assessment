@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, provider } from "../firebase/config";
-import { signInWithPopup } from "firebase/auth";
 import { UserAuth } from "../context/AuthContext";
 
-import Home from "./loggedIn/Home";
-
 const Landing = () => {
-  // const [emailValue, setEmailValue] = useState("");
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { signIn } = UserAuth();
+  const { user, signIn, signInGoogle } = UserAuth();
 
   const navigate = useNavigate();
 
@@ -31,24 +25,22 @@ const Landing = () => {
   };
 
   // for user signed in with Google Auth Provider
-  const handleSignInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then((data) => {
-        setEmail(data.user.email);
-        localStorage.setItem("email", data.user.email);
-      })
-      .catch((err) => console.log(err));
+  const handleSignInWithGoogle = async () => {
+    try {
+      await signInGoogle();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
-    setEmail(localStorage.getItem("email"));
-  }, []);
+    if (user != null) {
+      navigate("/home");
+    }
+  }, [user]);
 
   return (
     <>
-      {/* {email ? (
-        <Home />
-      ) : ( */}
       <section className=" min-h-screen flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-6xl p-5 items-center">
           <div className="md:w-1/2 px-16">
@@ -144,7 +136,6 @@ const Landing = () => {
           </div>
         </div>
       </section>
-      {/* )} */}
     </>
   );
 };
