@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import Landing from "../screens/Landing";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import AddUser from "./components/AddUser/AddUser";
+import Register from "./components/Register/Register";
 import User from "./components/User/User";
+import Home from "../screens/loggedIn/Home";
+import UserInfo from "../screens/loggedIn/UserInfo";
+import Album from "../screens/loggedIn/Album";
+import Photo from "../screens/loggedIn/Photo";
+import { AuthContextProvider } from "../context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const USERS_ENDPOINT = "https://jsonplaceholder.typicode.com/users";
@@ -75,7 +83,44 @@ function App() {
       <AddUser addUser={addUser} />
       <br />
       <div>{user}</div> */}
-      <Landing />
+      <AuthContextProvider>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/userinfo"
+            element={
+              <ProtectedRoute>
+                <UserInfo />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/album"
+            element={
+              <ProtectedRoute>
+                <Album />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/photo"
+            element={
+              <ProtectedRoute>
+                <Photo />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </AuthContextProvider>
     </div>
   );
 }
