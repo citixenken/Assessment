@@ -11,6 +11,7 @@ import Album from "../screens/loggedIn/Album";
 import Photo from "../screens/loggedIn/Photo";
 import { AuthContextProvider } from "../context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ForgotPassword from "../screens/ForgotPassword";
 
 function App() {
   const USERS_ENDPOINT = "https://jsonplaceholder.typicode.com/users";
@@ -87,6 +88,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route
             path="/home"
             element={
