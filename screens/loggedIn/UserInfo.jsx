@@ -1,7 +1,13 @@
 import React from "react";
+import Navbar from "../../src/components/Navbar/Navbar";
 
 const UserInfo = () => {
-  return <div>UserInfo</div>;
+  return (
+    <>
+      <Navbar />
+      <div>User Information</div>
+    </>
+  );
 };
 
 export default UserInfo;
