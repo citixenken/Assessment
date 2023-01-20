@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 // import Logo from "../../assets/faithplus-main-logo.png";
+import { useNavigate } from "react-router-dom";
+import { UserAuth } from "../../../context/AuthContext";
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const { logout } = UserAuth();
+
   const [open, setOpen] = useState(false);
 
   function toggleHamburgerButtonClick() {
@@ -12,9 +18,18 @@ function Navbar() {
     nav.classList.toggle("hidden");
   }
 
-  const handleLogout = () => {
-    localStorage.clear();
-    window.location.reload();
+  const handleLogout = async () => {
+    try {
+      // for user signed in with Google Auth Provider
+      // localStorage.clear();
+      // window.location.reload();
+
+      // for user signed in with Email/Password combo
+      await logout();
+      navigate("/");
+    } catch (err) {
+      console.log(err.message);
+    }
   };
 
   return (
@@ -22,7 +37,7 @@ function Navbar() {
       {/* navbar */}
       <nav className="relative container mx-auto p-6">
         {/* flex container */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-around">
           {/* logo */}
           {/* <div className="flex pt-2 w-60">
             <a href="#">
@@ -31,20 +46,14 @@ function Navbar() {
           </div> */}
           {/* navbar items */}
           <div className="hidden md:flex space-x-12">
-            <a href="#" className="hover:text-darkGrayishBlue">
-              <span>About Us</span>
+            <a href="/userinfo" className="hover:text-darkGrayishBlue">
+              <span>User Info</span>
             </a>
-            <a href="#" className="hover:text-darkGrayishBlue">
-              <span>Services</span>
+            <a href="/album" className="hover:text-darkGrayishBlue">
+              <span>Album Info</span>
             </a>
-            <a href="#" className="hover:text-darkGrayishBlue">
-              <span>Schedule Appointment</span>
-            </a>
-            <a href="#" className="hover:text-darkGrayishBlue">
-              <span>Location</span>
-            </a>
-            <a href="#" className="hover:text-darkGrayishBlue">
-              <span>Contact Us</span>
+            <a href="/photo" className="hover:text-darkGrayishBlue">
+              <span>Photographs</span>
             </a>
           </div>
           {/* take a tour button */}
