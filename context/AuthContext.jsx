@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signInWithPopup,
   signInWithRedirect,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth, provider } from "../firebase/config";
 
@@ -23,8 +24,14 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const signInGoogle = () => {
-    signInWithPopup(auth, provider); // best for desktop apps
-    // signInWithRedirect(auth, provider); //best for mobile devices
+    return signInWithPopup(auth, provider); // best for desktop apps
+    // return signInWithRedirect(auth, provider); //best for mobile devices
+  };
+
+  const forgotPassword = (email) => {
+    return sendPasswordResetEmail(auth, email, {
+      url: "http://localhost:5173", //redirect URL upon reset
+    });
   };
 
   const logout = () => {
@@ -43,7 +50,7 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ createUser, user, signIn, signInGoogle, logout }}
+      value={{ createUser, user, signIn, signInGoogle, forgotPassword, logout }}
     >
       {children}
     </UserContext.Provider>

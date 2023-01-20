@@ -51,6 +51,11 @@ const Landing = () => {
               Welcome to this web application platform that allows you to test
               out your Software Development ninja moves
             </p>
+            {error && (
+              <p className="text-brightRed bg-brightRedSupLight rounded-md p-1">
+                {error}
+              </p>
+            )}
             <form
               action=""
               className="flex flex-col px-8 gap-4"
@@ -112,7 +117,7 @@ const Landing = () => {
             </button>
 
             <div className="mt-5 text-sm text-brightRed border-b border-darkGrayishBlue py-4 hover:scale-105 duration-300">
-              <a href="">Forgot Password?</a>
+              <a href="/forgotpassword">Forgot Password?</a>
             </div>
             <div className="text-md flex justify-around items-center py-4">
               <p>Don't have an account?</p>
