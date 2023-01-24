@@ -7,6 +7,7 @@ const ForgotPassword = () => {
 
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const navigate = useNavigate();
 
@@ -14,6 +15,7 @@ const ForgotPassword = () => {
   const handlePasswordReset = async (e) => {
     e.preventDefault();
     try {
+      setSuccess("A password reset link has been sent to your email");
       await forgotPassword(email);
       navigate("/");
     } catch (err) {
@@ -29,8 +31,9 @@ const ForgotPassword = () => {
           {error}
         </p>
       )}
+      {success && <div className="mt-2 text-green-500 text-sm">{success}</div>}
       <p className="text-md mt-4 py-4 text-darkGrayishBlue">
-        Enter valid email credentials and check your inbox for password reset
+        Enter valid email credentials and check your inbox for a password reset
         link
       </p>
       <form
@@ -48,7 +51,7 @@ const ForgotPassword = () => {
           required
         />
         <button className="bg-brightRed rounded-md text-white py-2 hover:scale-105 duration-300">
-          Submit
+          Send reset link
         </button>
       </form>
       <div className="text-md flex justify-around items-center py-4">
