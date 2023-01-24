@@ -98,7 +98,7 @@ function App() {
             }
           />
           <Route
-            path="/userinfo"
+            path="/users/:id"
             element={
               <ProtectedRoute>
                 <UserInfo />
