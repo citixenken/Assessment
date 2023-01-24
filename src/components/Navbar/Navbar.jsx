@@ -43,9 +43,9 @@ function Navbar() {
             <a href="/home" className="hover:text-darkGrayishBlue">
               <span>Landing Page</span>
             </a>
-            <a href="/userinfo" className="hover:text-darkGrayishBlue">
+            {/* <a href="/userinfo" className="hover:text-darkGrayishBlue">
               <span>User Info</span>
-            </a>
+            </a> */}
             <a href="/album" className="hover:text-darkGrayishBlue">
               <span>Album Info</span>
             </a>
