@@ -21,7 +21,7 @@ The project was set up using [Vite](https://vitejs.dev/) - A blazingly fast Fron
  
 ## Deployment - via Vercel
 
-[Vercel live-link](https://bookhub-app.netlify.app/)
+[Vercel live-link](https://assessment-citixenken.vercel.app/)
 
 ## Contributing
 
