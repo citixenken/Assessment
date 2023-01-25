@@ -11,6 +11,7 @@ const UserInfo = () => {
 
   const [user, setUser] = useState([]);
   const [albums, setAlbums] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -23,7 +24,10 @@ const UserInfo = () => {
   const fetchUser = async () => {
     await fetch(`${USERS_ENDPOINT}/${id}`)
       .then((res) => res.json())
-      .then((data) => setUser(data))
+      .then((data) => {
+        setUser(data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   };
 
@@ -34,6 +38,17 @@ const UserInfo = () => {
       .then((data) => setAlbums(data))
       .catch((err) => console.log(err));
   };
+
+  if (loading) {
+    return (
+      <div class="flex items-center justify-center gap-2 text-darkBlue">
+        <span class="h-12 w-12 block rounded-full border-4 border-t-brightRed animate-spin"></span>
+        <div className="text-lg font-bold text-darkBlue">
+          Loading Profile...
+        </div>{" "}
+      </div>
+    );
+  }
 
   return (
     <>

@@ -11,6 +11,7 @@ const Album = () => {
 
   const [album, setAlbum] = useState([]);
   const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -23,7 +24,10 @@ const Album = () => {
   const fetchUserAlbum = async () => {
     await fetch(`${ALBUMS_ENDPOINT}/${id}`)
       .then((res) => res.json())
-      .then((data) => setAlbum(data))
+      .then((data) => {
+        setAlbum(data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   };
   // READ - GET /photos
@@ -34,6 +38,15 @@ const Album = () => {
       .then((data) => setPhotos(data))
       .catch((err) => console.log(err));
   };
+
+  if (loading) {
+    return (
+      <div class="flex items-center justify-center gap-2 text-darkBlue">
+        <span class="h-12 w-12 block rounded-full border-4 border-t-brightRed animate-spin"></span>
+        <div className="text-lg font-bold text-darkBlue">Loading Album...</div>{" "}
+      </div>
+    );
+  }
 
   return (
     <>

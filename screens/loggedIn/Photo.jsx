@@ -12,6 +12,7 @@ const Photo = () => {
   const [photoTitle, setPhotoTitle] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchAlbumPhoto();
@@ -24,6 +25,7 @@ const Photo = () => {
       .then((data) => {
         setPhoto(data);
         setPhotoTitle(data.title);
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   };
@@ -37,6 +39,14 @@ const Photo = () => {
     });
     setIsSaved(true);
   };
+  if (loading) {
+    return (
+      <div class="flex items-center justify-center gap-2 text-darkBlue">
+        <span class="h-12 w-12 block rounded-full border-4 border-t-brightRed animate-spin"></span>
+        <div className="text-lg font-bold text-darkBlue">Loading Photo...</div>{" "}
+      </div>
+    );
+  }
 
   return (
     <>
@@ -62,7 +72,7 @@ const Photo = () => {
             className="inline-block px-6 py-2.5 bg-brightRed rounded-xl text-white font-medium text-xs leading-tight uppercase shadow-md hover:bg-brightRedLight focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out my-4"
             onClick={handleEdit}
           >
-            Save
+            Save & Submit
           </button>
         </form>
       ) : (
