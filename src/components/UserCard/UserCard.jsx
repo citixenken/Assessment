@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import UserInfo from "../../../screens/loggedIn/UserInfo";
 
 const UserCard = () => {
   const USERS_ENDPOINT = "https://jsonplaceholder.typicode.com/users";

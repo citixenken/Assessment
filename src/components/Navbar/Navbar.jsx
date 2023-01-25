@@ -46,9 +46,9 @@ function Navbar() {
             {/* <a href="/userinfo" className="hover:text-darkGrayishBlue">
               <span>User Info</span>
             </a> */}
-            <a href="/album" className="hover:text-darkGrayishBlue">
+            {/* <a href="/album" className="hover:text-darkGrayishBlue">
               <span>Album Info</span>
-            </a>
+            </a> */}
             <a href="/photo" className="hover:text-darkGrayishBlue">
               <span>Photographs</span>
             </a>

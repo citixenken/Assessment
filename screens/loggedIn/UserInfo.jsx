@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../../src/components/Navbar/Navbar";
 
 const UserInfo = () => {
@@ -10,6 +10,8 @@ const UserInfo = () => {
 
   const [user, setUser] = useState([]);
   const [albums, setAlbums] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchUser();
@@ -45,13 +47,16 @@ const UserInfo = () => {
             .filter((album) => album.userId === user.id)
             .map((album, idx) => {
               return (
-                <li
+                <button
                   key={idx}
-                  className="bg-brightRedLight text-darkBlue text-xl shadow-lg rounded-lg overflow-hidden p-4 text-center"
+                  className="hover:scale-105 duration-300"
+                  onClick={() => navigate(`/albums/${album.id}`)}
                 >
-                  {idx + 1}.{" "}
-                  {album.title[0].toUpperCase() + album.title.slice(1)}
-                </li>
+                  <li className="bg-brightRedLight text-darkBlue text-xl shadow-lg rounded-lg overflow-hidden p-4 text-center ">
+                    {idx + 1}.{" "}
+                    {album.title[0].toUpperCase() + album.title.slice(1)}
+                  </li>
+                </button>
               );
             })}
         </ol>
