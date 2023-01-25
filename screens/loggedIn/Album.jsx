@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { IoMdPhotos } from "react-icons/io";
 import Navbar from "../../src/components/Navbar/Navbar";
 
 const Album = () => {
@@ -44,6 +45,12 @@ const Album = () => {
         </div>
       </div>
       <div className="container bg-veryPaleRed rounded-2xl mx-auto py-12 px-8">
+        <div className="text-4xl font-bold text-darkGrayishBlue mb-4">
+          <div className="flex flex-row space-x-4 items-center justify-center mb-8">
+            <IoMdPhotos className="text-4xl" />
+            <span>Album Photos</span>
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {photos
             .filter((photo) => photo.albumId === album.id)

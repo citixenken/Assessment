@@ -56,9 +56,6 @@ const ForgotPassword = () => {
       </form>
       <div className="text-md flex justify-around items-center py-4">
         <p>Already have an account?</p>
-        {/* <button className="py-2 px-4 bg-brightRed rounded-md text-white hover:scale-105 duration-300">
-          Sign In
-        </button> */}
         <Link to="/" className="text-brightRed">
           Sign In
         </Link>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaMusic } from "react-icons/fa";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../../src/components/Navbar/Navbar";
 
@@ -39,7 +40,10 @@ const UserInfo = () => {
       <Navbar />
       <div className="container bg-veryPaleRed rounded-2xl mx-auto py-12 px-8">
         <div className="text-4xl text-darkBlue mb-8">
-          {user.name}'s Album Collection
+          <div className="flex flex-row space-x-4 items-center justify-center">
+            <FaMusic className="text-4xl" />
+            <span>{user.name}'s Album Collection</span>
+          </div>
         </div>
 
         <ol className=" grid lg:grid-cols-1 gap-6">

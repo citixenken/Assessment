@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaUserNinja } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const UserCard = () => {
@@ -38,8 +39,10 @@ const UserCard = () => {
             className="bg-veryLightGray shadow-lg rounded-lg overflow-hidden"
             key={id}
           >
-            {/* <img className="h-32 w-32 rounded-full mx-auto" src={} alt={name} /> */}
             <div className="px-6 py-4">
+              <div className="flex items-center justify-center mb-2">
+                <FaUserNinja className="w-24 h-24 mr-4" />
+              </div>
               <div className="text-center text-2xl text-brightRed mb-3">
                 {user.name}
               </div>

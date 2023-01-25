@@ -80,10 +80,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <h2>SIL Frontend Engineer Assessment</h2>
-      <AddUser addUser={addUser} />
-      <br />
-      <div>{user}</div> */}
       <AuthContextProvider>
         <Routes>
           <Route path="/" element={<Landing />} />

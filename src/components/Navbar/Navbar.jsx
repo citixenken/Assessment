@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaHouseDamage } from "react-icons/fa";
+
 import { UserAuth } from "../../../context/AuthContext";
 
 function Navbar() {
@@ -29,25 +31,25 @@ function Navbar() {
   return (
     <div>
       {/* navbar */}
-      <nav className="relative container mx-auto p-6">
+      <nav className="relative container mx-auto p-6 mb-6 bg-brightRedSupLight rounded-xl">
         {/* flex container */}
         <div className="flex items-center justify-around">
-          {/* logo */}
-          {/* <div className="flex pt-2 w-60">
-            <a href="#">
-              <img src={Logo} alt="Faith-Plus Logo" className="rounded-2xl" />
-            </a>
-          </div> */}
           {/* navbar items */}
-          <div className="hidden md:flex space-x-12">
-            <a href="/home" className="hover:text-darkGrayishBlue">
-              <span>Home</span>
+          <div className=" md:flex space-x-12">
+            <a
+              href="/home"
+              className="hover:text-darkGrayishBlue text-2xl hover:scale-125"
+            >
+              <div className="flex flex-row space-x-2 items-center">
+                <FaHouseDamage className="text-4xl" />
+                <span>Home</span>
+              </div>
             </a>
           </div>
           {/* take a tour button */}
           <button
             href="#"
-            className="hidden md:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight"
+            className="sm:block p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight"
             onClick={handleLogout}
           >
             Logout

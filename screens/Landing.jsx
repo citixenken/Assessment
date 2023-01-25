@@ -47,7 +47,7 @@ const Landing = () => {
             <h2 className="font-bold text-4xl text-brightRed">
               SIL Assessment Center
             </h2>
-            <p className="text-md mt-4 py-4 text-darkGrayishBlue">
+            <p className="text-lg mt-4 py-4 text-darkGrayishBlue">
               Welcome to this web application platform that allows you to test
               out your Software Development ninja moves
             </p>
@@ -121,9 +121,6 @@ const Landing = () => {
             </div>
             <div className="text-md flex justify-around items-center py-4">
               <p>Don't have an account?</p>
-              {/* <button className="py-2 px-4 bg-brightRed rounded-md text-white hover:scale-105 duration-300">
-                Register
-              </button> */}
               <Link
                 to="/register"
                 className="text-brightRed hover:scale-105 duration-300"
