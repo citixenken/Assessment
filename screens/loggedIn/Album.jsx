@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../../src/components/Navbar/Navbar";
 
 const Album = () => {
@@ -11,13 +11,15 @@ const Album = () => {
   const [album, setAlbum] = useState([]);
   const [photos, setPhotos] = useState([]);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    fetchUserAlbums();
+    fetchUserAlbum();
     fetchPhotos();
   }, []);
 
   // READ - GET /album
-  const fetchUserAlbums = async () => {
+  const fetchUserAlbum = async () => {
     await fetch(`${ALBUMS_ENDPOINT}/${id}`)
       .then((res) => res.json())
       .then((data) => setAlbum(data))
@@ -42,19 +44,20 @@ const Album = () => {
         </div>
       </div>
       <div className="container bg-veryPaleRed rounded-2xl mx-auto py-12 px-8">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {photos
             .filter((photo) => photo.albumId === album.id)
             .map((photo) => (
               <img
-                src={photo.thumbnailUrl}
+                src={photo.url}
                 alt={photo.title}
-                className="h-64 object-cover rounded-lg"
+                className="w-full h-64 object-cover rounded-lg cursor-pointer"
                 key={photo.id}
                 onError={(e) => {
                   e.target.src =
                     "https://img.freepik.com/free-vector/503-error-service-unavailable-concept-illustration_114360-1906.jpg?w=826&t=st=1674619488~exp=1674620088~hmac=9773e37ea0924e9cf0ae62553e85a772dafd4c9b8c7ba9eb1c16bd9326c52302";
                 }}
+                onClick={() => navigate(`/photos/${photo.id}`)}
               />
             ))}
         </div>

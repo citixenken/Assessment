@@ -114,7 +114,7 @@ function App() {
             }
           />
           <Route
-            path="/photo"
+            path="/photos/:id"
             element={
               <ProtectedRoute>
                 <Photo />
