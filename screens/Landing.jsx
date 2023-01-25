@@ -132,7 +132,8 @@ const Landing = () => {
           <div className="w-1/2 md:block hidden">
             <img
               className="rounded-2xl "
-              src="../src/assets/arrow-img.jpg"
+              // src="../src/assets/arrow-img.jpg"
+              src="https://images.pexels.com/photos/833317/pexels-photo-833317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt="test-img"
             />
           </div>
