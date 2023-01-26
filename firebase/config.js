@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  // apiKey: "AIzaSyDnZXyu66m1RWDTymqDZ8-mIzEmcxVaX1k",
   apiKey: import.meta.env.VITE_APP_FIREBASE_API_KEY,
   authDomain: "silassessment.firebaseapp.com",
   projectId: "silassessment",
