@@ -4,6 +4,8 @@
 
 <p align="center"> Testing Frontend Web Dev skills </p>
 
+[![GitHub Super-Linter](https://github.com/citixenken/Assessment/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
 <hr/>
 
 ## API Usage and Endpoint
