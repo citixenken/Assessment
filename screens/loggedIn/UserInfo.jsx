@@ -41,8 +41,8 @@ const UserInfo = () => {
 
   if (loading) {
     return (
-      <div class="flex items-center justify-center gap-2 text-darkBlue">
-        <span class="h-12 w-12 block rounded-full border-4 border-t-brightRed animate-spin"></span>
+      <div className="flex items-center justify-center gap-2 text-darkBlue">
+        <span className="h-12 w-12 block rounded-full border-4 border-t-brightRed animate-spin"></span>
         <div className="text-lg font-bold text-darkBlue">
           Loading Profile...
         </div>{" "}
