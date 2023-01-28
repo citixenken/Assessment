@@ -21,11 +21,15 @@ function App() {
   }, []);
 
   // READ
+
   const fetchUsers = async () => {
-    await fetch(USERS_ENDPOINT)
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => console.log(err));
+    try {
+      const response = await fetch(USERS_ENDPOINT);
+      const data = await response.json();
+      setUsers(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   // CREATE => POST

@@ -18,17 +18,24 @@ const UserCard = () => {
 
   // READ - GET /users
   const fetchUsers = async () => {
-    await fetch(USERS_ENDPOINT)
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => console.log(err));
+    try {
+      const response = await fetch(USERS_ENDPOINT);
+      const data = await response.json();
+      setUsers(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
+
   // READ - GET /albums
   const fetchUserAlbums = async () => {
-    await fetch(ALBUMS_ENDPOINT)
-      .then((res) => res.json())
-      .then((data) => setAlbums(data))
-      .catch((err) => console.log(err));
+    try {
+      const response = await fetch(ALBUMS_ENDPOINT);
+      const data = await response.json();
+      setAlbums(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
