@@ -8,6 +8,7 @@ const UserCard = () => {
 
   const [users, setUsers] = useState([]);
   const [albums, setAlbums] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -22,6 +23,7 @@ const UserCard = () => {
       const response = await fetch(USERS_ENDPOINT);
       const data = await response.json();
       setUsers(data);
+      setLoading(false);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -37,6 +39,17 @@ const UserCard = () => {
       console.error("Error:", error);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center gap-2 text-darkBlue">
+        <span className="h-12 w-12 block rounded-full border-4 border-t-brightRed animate-spin"></span>
+        <div className="text-lg font-bold text-darkBlue">
+          Loading users... Be patient
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container bg-veryPaleRed rounded-2xl mx-auto py-12 px-8">
