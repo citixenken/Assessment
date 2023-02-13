@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import * as Sentry from "@sentry/react";
 import Landing from "../screens/Landing";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
@@ -127,4 +128,4 @@ function App() {
   );
 }
 
-export default App;
+export default Sentry.withProfiler(App);

@@ -11,6 +11,8 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@sentry/react": "^7.37.1",
+    "@sentry/tracing": "^7.37.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "firebase": "^9.15.0",
