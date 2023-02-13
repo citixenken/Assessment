@@ -1,6 +1,6 @@
-<p align="center"><img src="https://cdn-icons-png.flaticon.com/512/3214/3214721.png" /></p>
+# SIL Assessment
 
-<h1 align="center">SIL Assessment</h1>
+<p align="center"><img src="https://cdn-icons-png.flaticon.com/512/3214/3214721.png" /></p>
 
 <p align="center"> Testing Frontend Web Dev skills </p>
 
@@ -15,7 +15,7 @@ The application consumes data from [JSONPlaceholder](https://jsonplaceholder.typ
 ## Set up locally
 The project was set up using [Vite](https://vitejs.dev/) - A blazingly fast Frontend build tool 
 
-1. Fork and clone this repo.
+1. Fork and clone this repository.
 
 2. Run `npm install && npm run dev` and open [localhost](http://localhost:5173)
 
