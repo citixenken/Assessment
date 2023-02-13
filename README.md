@@ -37,6 +37,7 @@ Pull requests(PRs) are welcome. For major changes, please open an issue first to
 4. User Authentication and Authorization, check out [Firebase](https://firebase.google.com/)
 5. For Backend service, see [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
 6. Deployment service was handled by [Vercel](https://vercel.com/dashboard)
+7. [Sentry](https://docs.sentry.io/platforms/javascript/guides/react/) SDK to automatically report errors and exceptions in our application 
 
 ## Acknowledgement
 
