@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaMusic } from "react-icons/fa";
+import { FaMusic, FaChevronLeft } from "react-icons/fa";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../../src/components/Navbar/Navbar";
 
@@ -54,8 +54,11 @@ const UserInfo = () => {
     <>
       <Navbar />
       <div className="container bg-veryPaleRed rounded-2xl mx-auto py-12 px-8">
-        <div className="text-4xl text-darkBlue mb-8">
-          <div className="flex flex-row space-x-4 items-center justify-center">
+        <div className="text-4xl text-darkBlue mb-8 flex flex-row justify-around gap-6">
+          <button onClick={() => navigate("/home")}>
+            <FaChevronLeft className="text-4xl" />
+          </button>
+          <div className="flex flex-row space-x-4 justify-center items-center">
             <FaMusic className="text-4xl" />
             <span>{user.name}'s Album Collection</span>
           </div>

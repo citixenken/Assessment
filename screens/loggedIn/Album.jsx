@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { IoMdPhotos } from "react-icons/io";
+import { FaChevronLeft } from "react-icons/fa";
 import Navbar from "../../src/components/Navbar/Navbar";
 
 const Album = () => {
@@ -52,9 +53,14 @@ const Album = () => {
     <>
       <Navbar />
       <div className="container bg-darkGrayishBlue rounded-2xl mx-auto py-12 px-8 my-8">
-        <div className="text-4xl font-bold text-darkBlue">
-          {/* {album.title[0].toUpperCase() + album.title.slice(1)} */}
-          {album.title}
+        <div className="text-4xl text-darkBlue mb-8 flex flex-row gap-6">
+          <button onClick={() => navigate(-1)}>
+            <FaChevronLeft className="text-4xl" />
+          </button>
+          <div className="text-4xl font-bold text-darkBlue">
+            {/* {album.title[0].toUpperCase() + album.title.slice(1)} */}
+            {album.title}
+          </div>
         </div>
       </div>
       <div className="container bg-veryPaleRed rounded-2xl mx-auto py-12 px-8">

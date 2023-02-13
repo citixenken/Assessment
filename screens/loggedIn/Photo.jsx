@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { FaChevronLeft } from "react-icons/fa";
 
 import Navbar from "../../src/components/Navbar/Navbar";
 
@@ -13,6 +14,8 @@ const Photo = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchAlbumPhoto();
@@ -52,9 +55,14 @@ const Photo = () => {
     <>
       <Navbar />
       <div className="container bg-darkGrayishBlue rounded-2xl mx-auto py-12 px-8 my-8">
-        <div className="text-4xl font-bold text-darkBlue">
-          {/* {album.title[0].toUpperCase() + album.title.slice(1)} */}
-          {photoTitle}
+        <div className="text-4xl text-darkBlue mb-8 flex flex-row gap-6">
+          <button onClick={() => navigate(-1)}>
+            <FaChevronLeft className="text-4xl" />
+          </button>
+          <div className="text-4xl font-bold text-darkBlue">
+            {/* {album.title[0].toUpperCase() + album.title.slice(1)} */}
+            {photoTitle}
+          </div>
         </div>
       </div>
       {isEditing && !isSaved ? (
